@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:padding="32dp"
+    tools:context=".WelcomeActivity">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SYSTEM ENTRY"
+        android:textColor="@color/text_primary"
+        android:textSize="32sp"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.05"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvSubHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tvSubHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select connection mode"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOnline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOnline"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="LIVE ROUTINE"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/tech_primary"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOffline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubHeader" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOffline"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:text="OFFLINE ROUTINE"
+        android:textColor="@color/text_secondary"
+        app:strokeColor="@color/text_secondary"
+        app:strokeWidth="2dp"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOnline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Routine - Varendra University</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="top-bar">
+            <button id="teacher-toggle-btn" class="toggle-btn">Show Teacher Names</button>
+
+            <div class="right-controls">
+                <select id="section-select" class="section-dropdown">
+                    <option value="A" selected>Section A</option>
+                    <option value="B">Section B</option>
+                    <option value="C">Section C</option>
+                    <option value="D">Section D</option>
+                    <option value="E">Section E</option>
+                    <option value="F">Section F</option>
+                    <option value="G">Section G</option>
+                </select>
+
+                <div class="theme-toggle-wrapper">
+                    <input type="checkbox" id="theme-checkbox" class="theme-checkbox">
+                    <label for="theme-checkbox" class="theme-label">
+                        <div class="main-ball">
+                            <span class="sun">☀️</span>
+                            <span class="moon">🌙</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="header-title">CSE 2nd Semester (Sec-A)</h1>
+
+        <div class="calendar-section">
+            <input type="date" id="routine-date">
+            <div id="day-info" style="display: none;"><span></span></div>
+        </div>
+    </header>
+
+    <div id="holiday-msg" class="holiday-box" style="display: none;">
+        <h2>Enjoy Your Holiday!</h2>
+        <p>Today is an <strong>Off Day</strong>. No classes scheduled.</p>
+    </div>
+
+    <div id="mobile-view" class="mobile-schedule"></div>
+
+    <div class="table-responsive" id="routine-wrapper">
+        <table id="routine-table">
+            <thead>
+            <tr>
+                <th class="time-header">Time \ Day</th>
+                <th id="Sun">Sunday</th>
+                <th id="Mon">Monday</th>
+                <th id="Tue">Tuesday</th>
+                <th id="Wed">Wednesday</th>
+                <th id="Thu">Thursday</th>
+            </tr>
+            </thead>
+            <tbody id="routine-body-content" class="routine-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

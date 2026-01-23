@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         // 2. Configure WebView
         CSEWEB.getSettings().setJavaScriptEnabled(true);
+        CSEWEB.getSettings().setAllowFileAccess(true);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            CSEWEB.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        }
 
         // 3. Configure Swipe Refresh
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -52,7 +56,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 5. Load the URL
-        CSEWEB.loadUrl("https://zakialsaad.github.io/CSE2NDSEMSECA");
+        // 5. Load based on intent (online/offline)
+        String mode = getIntent().getStringExtra("mode");
+        if (mode == null) mode = "online"; // default
+
+        if ("offline".equalsIgnoreCase(mode)) {
+            String assetPath = getIntent().getStringExtra("assetPath");
+            if (assetPath == null) assetPath = "www/index.html";
+            CSEWEB.loadUrl("file:///android_asset/" + assetPath);
+        } else {
+            String url = getIntent().getStringExtra("url");
+            if (url == null) url = "https://zakialsaad.github.io/CSE2NDSEMSECA";
+            CSEWEB.loadUrl(url);
+        }
     }
 }

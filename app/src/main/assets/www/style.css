@@ -1,0 +1,158 @@
+:root {
+    --bg: #f4f7f6;
+    --card-bg: #ffffff;
+    --text: #333333;
+    --border: #e0e0e0;
+    --header-bg: #217346;
+    --highlight: #fff3cd;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] {
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+    --text: #e0e0e0;
+    --border: #333333;
+    --header-bg: #1a5c38;
+    --highlight: #3a321a;
+    --shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+header h1 { text-align: center; color: var(--header-bg); margin: 20px 0; font-size: 1.8rem; }
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: var(--bg);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.right-controls { display: flex; align-items: center; gap: 15px; }
+
+.toggle-btn {
+    background-color: var(--header-bg);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.section-dropdown {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: var(--card-bg);
+    color: var(--text);
+}
+
+/* Highlight Active Column */
+.active-day {
+    background-color: var(--highlight) !important; /* হালকা হলুদ বা ডার্ক মোড কালার */
+    border-left: 2px solid #19ee8a !important;     /* বামে কমলা বর্ডার */
+    border-right: 2px solid #19ee8a !important;    /* ডানে কমলা বর্ডার */
+    border-bottom: 2px solid #19ee8a !important;   /* নিচে কমলা বর্ডার */
+    transition: 0.3s ease;
+}
+
+/* Header Highlight Specific */
+th.active-day {
+    background-color: #000000 !important; /* হেডার একটু গাঢ় হবে */
+    border: 2px solid #4ffd0a !important;
+}
+
+/* Apple Style Theme Switch */
+.theme-toggle-wrapper { display: flex; align-items: center; }
+.theme-label {
+    width: 60px; height: 30px;
+    background-color: #333;
+    display: flex; border-radius: 50px;
+    position: relative; cursor: pointer;
+    transition: 0.4s;
+}
+.theme-checkbox { display: none; }
+.main-ball {
+    width: 24px; height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute; top: 3px; left: 3px;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.sun, .moon { font-size: 14px; position: absolute; transition: 0.3s; }
+.moon { opacity: 0; transform: translateY(15px); }
+.theme-checkbox:checked + .theme-label { background-color: #217346; }
+.theme-checkbox:checked + .theme-label .main-ball { transform: translateX(30px); }
+.theme-checkbox:checked + .theme-label .sun { opacity: 0; transform: translateY(-15px); }
+.theme-checkbox:checked + .theme-label .moon { opacity: 1; transform: translateY(0); }
+
+/* Centered Date Selector */
+.calendar-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.calendar-section input {
+    padding: 10px 15px;
+    border: 2px solid var(--header-bg);
+    border-radius: 8px;
+    font-weight: 600;
+    outline: none;
+    text-align: center;
+}
+
+/* Table Styling */
+.table-responsive { overflow-x: auto; border-radius: 12px; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 900px; }
+th { background-color: var(--header-bg); color: white; padding: 15px; }
+td { padding: 12px; border: 1px solid var(--border); text-align: center; }
+.time-slot { background: var(--bg); font-weight: bold; }
+
+.subject-cell { font-weight: 500; }
+.eee { background: #e2f0d9 !important; color: #2e7d32; }
+.mat { background: #ddebf7 !important; color: #1565c0; }
+.cse { background: #fff2cc !important; color: #f57f17; }
+.cse-lab { background: #d9e1f2 !important; color: #4a148c; font-weight: bold; border-left: 4px solid #8e44ad; }
+.ban { background: #fbe5d6 !important; color: #d84315; }
+
+.teacher-name { display: none !important; font-size: 0.8rem; margin-top: 5px; font-weight: bold; }
+body.show-teachers .teacher-name { display: block !important; }
+
+/* Mobile View */
+@media (max-width: 576px) {
+    #routine-wrapper { display: none !important; }
+    .mobile-schedule { display: block; }
+    .class-card {
+        background: var(--card-bg);
+        border-left: 5px solid var(--header-bg);
+        padding: 15px; margin-bottom: 15px;
+        border-radius: 10px; box-shadow: var(--shadow);
+    }
+    .mobile-teacher { display: none; margin-top: 10px; border-top: 1px dashed #ccc; padding-top: 5px; font-weight: bold; }
+    body.show-teachers .mobile-teacher { display: block; }
+}
