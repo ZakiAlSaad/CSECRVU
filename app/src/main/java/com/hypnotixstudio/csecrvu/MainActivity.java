@@ -1,8 +1,11 @@
 package com.hypnotixstudio.csecrvu;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -15,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     WebView CSEWEB;
     SwipeRefreshLayout swipeRefreshLayout; // Declare the swipe layout
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
         // 1. Initialize Views
         CSEWEB = findViewById(R.id.CSEWEB);
         swipeRefreshLayout = findViewById(R.id.swipeContainer);
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, WelcomeActivity.class);
+            startActivity(i);
+            finish();
+        });
 
         // 2. Configure WebView
         CSEWEB.getSettings().setJavaScriptEnabled(true);
@@ -38,6 +49,18 @@ public class MainActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
             CSEWEB.getSettings().setAllowUniversalAccessFromFileURLs(true);
         }
+
+        // JS bridge for offline page to navigate back
+        CSEWEB.addJavascriptInterface(new Object() {
+            @JavascriptInterface
+            public void backToWelcome() {
+                runOnUiThread(() -> {
+                    Intent i = new Intent(MainActivity.this, WelcomeActivity.class);
+                    startActivity(i);
+                    finish();
+                });
+            }
+        }, "AndroidBridge");
 
         // 3. Configure Swipe Refresh
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

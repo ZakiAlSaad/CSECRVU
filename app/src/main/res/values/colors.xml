@@ -11,4 +11,5 @@
     <color name="tech_primary">#6C63FF</color>
     <color name="text_primary">#EEEEEE</color>
     <color name="text_secondary">#B0B0C0</color>
+    <color name="transparent">#00000000</color>
 </resources>
