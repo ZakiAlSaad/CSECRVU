@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnBack;
 
     // Define your trusted domain
-    private static final String TRUSTED_URL = "https://zakialsaad.github.io/CSE2NDSEMSECA";
+    private static final String TRUSTED_URL = "https://csecrvu.netlify.app";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             String url = getIntent().getStringExtra("url");
 
             // Security check: Only allow your trusted GitHub URL
-            if (url != null && url.startsWith("https://zakialsaad.github.io")) {
+            if (url != null && url.startsWith("https://csecrvu.netlify.app")) {
                 CSEWEB.loadUrl(url);
             } else {
                 // Fallback to the default safe URL if the intent contains something suspicious

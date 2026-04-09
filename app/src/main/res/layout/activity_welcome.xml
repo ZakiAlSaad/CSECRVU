@@ -3,18 +3,43 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark"
+    android:background="#050A10"
     android:padding="32dp"
     tools:context=".WelcomeActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/videoFrame"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginBottom="24dp"
+        app:cardBackgroundColor="#000000"
+        app:cardElevation="0dp"
+        app:strokeColor="#00E5FF"
+        app:strokeWidth="2dp"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toTopOf="@id/tvWelcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <VideoView
+            android:id="@+id/videoViewHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SYSTEM ENTRY"
-        android:textColor="@color/text_primary"
+        android:textColor="#00E5FF"
+        android:shadowColor="#00E5FF"
+        android:shadowRadius="15"
         android:textSize="32sp"
         android:fontFamily="monospace"
         android:letterSpacing="0.05"
@@ -30,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select connection mode"
-        android:textColor="@color/text_secondary"
+        android:textColor="#3D7A89"
         android:textSize="16sp"
         android:fontFamily="monospace"
         android:layout_marginTop="8dp"
@@ -42,37 +67,41 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOnline"
-        android:layout_width="0dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="280dp"
         android:layout_height="60dp"
-        android:text="LIVE ROUTINE"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="@color/tech_primary"
+        android:backgroundTint="#0A121A"
         android:fontFamily="monospace"
+        android:text="LIVE ROUTINE"
+        android:textColor="#00FF66"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"
+        app:cornerRadius="4dp"
         app:layout_constraintBottom_toTopOf="@+id/btnOffline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubHeader" />
+        app:layout_constraintTop_toBottomOf="@id/tvSubHeader"
+        app:strokeColor="#004D26"
+        app:strokeWidth="2dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOffline"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:text="OFFLINE ROUTINE"
-        android:textColor="@color/text_secondary"
-        app:strokeColor="@color/text_secondary"
-        app:strokeWidth="2dp"
+        android:backgroundTint="#0A121A"
         android:fontFamily="monospace"
+        android:text="OFFLINE ROUTINE"
+        android:textColor="#00FF66"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:cornerRadius="12dp"
+        app:cornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnOnline" />
+        app:layout_constraintTop_toBottomOf="@id/btnOnline"
+        app:strokeColor="#004D26"
+        app:strokeWidth="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

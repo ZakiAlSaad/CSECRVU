@@ -12,8 +12,8 @@ android {
         applicationId "com.hypnotixstudio.csecrvu"
         minSdk 23
         targetSdk 36
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 8
+        versionName "1.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +31,7 @@ android {
 }
 
 dependencies {
+    implementation libs.core.ktx
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity

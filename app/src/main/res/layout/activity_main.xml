@@ -35,17 +35,19 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="BACK"
-            android:textColor="#000000"
+            android:textColor="#39FF14"
             android:fontFamily="monospace"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:strokeColor="#39FF14"
+            app:strokeWidth="2dp"
             app:icon="@drawable/ic_arrow_back"
-            app:iconTint="#000000"
+            app:iconTint="#39FF14"
             app:iconPadding="8dp"
             app:cornerRadius="8dp" />
     </LinearLayout>
